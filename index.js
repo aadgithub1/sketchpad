@@ -1,10 +1,10 @@
 let container = document.querySelector('#grid-container')
 let selectDimensionsBtn = document.querySelector('button')
-const MAX_GRID_SIZE = 1000 //px
+const GRID_SIZE = 1000 //px
 
 function renderGrid(numRowsAndCols = 16){
-    let tileHeight = MAX_GRID_SIZE / numRowsAndCols
-    let tileWidth = MAX_GRID_SIZE / numRowsAndCols
+    let tileHeight = GRID_SIZE / numRowsAndCols
+    let tileWidth = GRID_SIZE / numRowsAndCols
     for (let i = 0; i < numRowsAndCols; i++){
         let currentRow = document.createElement('div')
         for (let j = 0; j < numRowsAndCols; j++){
@@ -12,14 +12,18 @@ function renderGrid(numRowsAndCols = 16){
             currentTile.setAttribute('class', 'tile')
             currentTile.style.height = `${tileHeight}px`
             currentTile.style.width = `${tileWidth}px`
+            currentTile.style.opacity = 0
             currentTile.addEventListener('mouseover', function(){
-                this.setAttribute('class', 'dark')
+                this.style.opacity = +this.style.opacity + .1
             })
             currentRow.appendChild(currentTile)
         }
         container.appendChild(currentRow)
     }
 }
+//make container background the same as the previous tile color
+//make tile init color black, opacity 0
+//each time it is hovered over: increase opacity by .1
 selectDimensionsBtn.addEventListener('click', function(){
     let newGridDimensions = 101
     while (newGridDimensions > 100){

@@ -15,10 +15,11 @@ body{
     justify-content: center;
 }
 #grid-container{
+    background-color: #636940;
     display: flex;
 }
 .tile{
-    background-color: #636940;
+    background-color: #000000;
 }
 .dark{
     background-color: #474A2C;
