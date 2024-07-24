@@ -12,18 +12,25 @@ function renderGrid(numRowsAndCols = 16){
             currentTile.setAttribute('class', 'tile')
             currentTile.style.height = `${tileHeight}px`
             currentTile.style.width = `${tileWidth}px`
-            currentTile.style.opacity = 0
             currentTile.addEventListener('mouseover', function(){
-                this.style.opacity = +this.style.opacity + .1
+                let selector = Math.floor(Math.random() * 3) + 1
+                switch (selector){
+                    case 1:
+                        this.style.backgroundColor = '#FFE5D4'
+                        break
+                    case 2:
+                        this.style.backgroundColor = '#D7AF70'
+                        break
+                    case 3:
+                        this.style.backgroundColor = '#EA526F'
+                        break
+                }
             })
             currentRow.appendChild(currentTile)
         }
         container.appendChild(currentRow)
     }
 }
-//make container background the same as the previous tile color
-//make tile init color black, opacity 0
-//each time it is hovered over: increase opacity by .1
 selectDimensionsBtn.addEventListener('click', function(){
     let newGridDimensions = 101
     while (newGridDimensions > 100){
