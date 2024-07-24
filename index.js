@@ -21,9 +21,6 @@ function renderGrid(numRowsAndCols = 16){
         container.appendChild(currentRow)
     }
 }
-//make container background the same as the previous tile color
-//make tile init color black, opacity 0
-//each time it is hovered over: increase opacity by .1
 selectDimensionsBtn.addEventListener('click', function(){
     let newGridDimensions = 101
     while (newGridDimensions > 100){
